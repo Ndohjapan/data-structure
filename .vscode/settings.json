@@ -1,3 +1,7 @@
 {
-    "C_Cpp.default.compilerPath": "c:\\msys64\\msys2.exe"
+    "C_Cpp.default.compilerPath": "c:\\msys64\\msys2.exe",
+    "files.associations": {
+        "*.ejs": "html",
+        "array": "cpp"
+    }
 }
