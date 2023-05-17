@@ -1,6 +1,13 @@
 {
     "configurations": [
         {
+            "type": "java",
+            "name": "LeetCode34",
+            "request": "launch",
+            "mainClass": "Java.Searching.BinarySearch.LeetCode34",
+            "projectName": "data-structure_e12d232d"
+        },
+        {
             "name": "C/C++: gcc.exe build and debug active file",
             "type": "cppdbg",
             "request": "launch",

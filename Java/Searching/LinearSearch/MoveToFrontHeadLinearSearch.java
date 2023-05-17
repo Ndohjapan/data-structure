@@ -1,4 +1,4 @@
-package Java.Searching.LinearSearch;
+
 
 // Java program to implement
 // the move to front to optimized

@@ -2,10 +2,13 @@
     "C_Cpp.default.compilerPath": "c:\\msys64\\msys2.exe",
     "files.associations": {
         "*.ejs": "html",
-        "array": "cpp"
+        "array": "cpp",
+        "vector": "cpp"
     },
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
-    "python.formatting.provider": "none"
+    "python.formatting.provider": "none",
+    "C_Cpp.errorSquiggles": "disabled",
+    "java.debug.settings.onBuildFailureProceed": true
 }

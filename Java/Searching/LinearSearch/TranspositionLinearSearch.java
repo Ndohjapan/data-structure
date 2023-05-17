@@ -1,4 +1,4 @@
-package Java.Searching.LinearSearch;
+
 
 public class TranspositionLinearSearch {
   // Structure of the
