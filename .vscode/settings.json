@@ -3,7 +3,8 @@
     "files.associations": {
         "*.ejs": "html",
         "array": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "cmath": "cpp"
     },
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
