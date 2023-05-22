@@ -1,4 +1,4 @@
-def exponential_search(arr, target):
+def exponential_search(arr: list, target: int) -> int:
     key = 1
     start = 0
     end = len(arr) - 1
@@ -17,7 +17,7 @@ def exponential_search(arr, target):
 
     return binary_search(arr, start, end, target)
 
-def binary_search(arr, start, end, target):
+def binary_search(arr: list, start: int, end: int, target: int) -> int:
     while start <= end:
         mid = (start + end)//2
         if(arr[mid] == target):

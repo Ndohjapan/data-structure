@@ -2,7 +2,7 @@
 
 from math import floor
 
-def search(arr, target):
+def search(arr: list, target: int) -> int:
     left = 0
     right = len(arr) - 1
     

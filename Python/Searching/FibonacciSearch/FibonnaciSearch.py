@@ -1,18 +1,17 @@
-def fib_search(arr, x, n):
+def fib_search(arr: list, x: int, n: int) -> int:
 
-    Fib2 = 0  #(m-2)'th Fibonnaci no
-    Fib1 = 1    #(m-1)'th Fibonnaci no
-    FibM = Fib1 + Fib2 # m'th Fibonnaci
+    Fib2 = 0  # (m-2)'th Fibonnaci no
+    Fib1 = 1    # (m-1)'th Fibonnaci no
+    FibM = Fib1 + Fib2  # m'th Fibonnaci
 
-    
-    # FibM is going to store the smallest
+    # FibM is going to store the smallest Fibonnaci
+    # number greater than or equals to 10
     while (FibM < n):
         Fib2 = Fib1
         Fib1 = FibM
         FibM = Fib1 + Fib2
 
-
-    offset = -1
+        offset = -1
 
     while (FibM > 1):
 
@@ -21,8 +20,8 @@ def fib_search(arr, x, n):
         # New FibM becomes the m-1'th Fibonacci no, and FibM is moved backward
         if (arr[i] < x):
             FibM = Fib1  # New m'th Fibonacci no
-            Fib1 = Fib2   # New (m-1)'th Fibonacci no
-            Fib2 = FibM - Fib1 # New (m-2)'th Fibonacci no
+            Fib1 = Fib2  # New (m-1)'th Fibonacci no
+            Fib2 = FibM - Fib1  # New (m-2)'th Fibonacci no
             offset = i
 
         # New FibM becomes the m-2'th Fibonacci no, and FibM is moved backward by 2 steps backwards
@@ -33,7 +32,7 @@ def fib_search(arr, x, n):
 
         else:
             return i
-    
+
     # comparing last element with x
     if Fib1 and arr[n - 1] == x:
         return n - 1

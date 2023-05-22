@@ -1,4 +1,4 @@
-def interpolation_search(arr, target):
+def interpolation_search(arr: list, target: int) -> int:
     start = 0
     end = len(arr) - 1
 
@@ -18,7 +18,7 @@ def interpolation_search(arr, target):
     return -1
 
 
-def interpolation_search_recursion(arr, start, end, target):
+def interpolation_search_recursion(arr: list, start: int, end: int, target: int):
     probe = start + ((end - start) * (target - arr[start])) // (arr[end] - arr[start])
 
     if arr[start] > target or target > arr[end]:
