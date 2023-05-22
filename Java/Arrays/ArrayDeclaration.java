@@ -1,4 +1,4 @@
-/**
+ /**
  * ArrayDeclaration
  */
 public class ArrayDeclaration {
