@@ -1,7 +1,5 @@
 public class LeetCode34 {
     public static int[] search(int arr[], int target){
-        int start = 0;
-        int end = arr.length - 1;
         int[] result = {-1, -1};
 
         result[0] = getIndex(arr, target, true);
