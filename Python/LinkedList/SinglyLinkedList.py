@@ -87,6 +87,31 @@ class LinkedList:
         print(content)
 
 
+
+    def search_node(self, key):
+        """This method checks if a value exists in the linked list and returns True 
+            otherwise, returns False
+
+            Complexity:
+                Time: O(n) where n is the number of nodes in the linked list
+                Space: O(1)
+        """
+
+        if self.head == None:
+            return ("List is empty")
+
+        current = self.head
+
+        while current:
+            if current.data == key:
+                return True
+            
+            current = current.next
+
+        return False
+            
+
+
 if __name__ == '__main__':
     LL = LinkedList()
 
@@ -97,5 +122,8 @@ if __name__ == '__main__':
     LL.add_to_the_end(7)
 
     LL.print_LinkedList()
+
+    print(LL.search_node(4))
+    print(LL.search_node(8))
 
 
