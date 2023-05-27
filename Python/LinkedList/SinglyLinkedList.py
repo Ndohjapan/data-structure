@@ -81,8 +81,9 @@ class LinkedList:
         content = ""
 
         while itr:
-            content += str(itr.data) + " "
+            content += str(itr.data) + " " + "->" + " "
             itr = itr.next
+        content += "END"
 
         print(content)
 
