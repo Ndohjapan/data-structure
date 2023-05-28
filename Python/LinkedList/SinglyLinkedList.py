@@ -164,9 +164,11 @@ if __name__ == '__main__':
     LL.add_to_the_end(7)
 
     LL.print_LinkedList()
-    LL.get_length()
+    print(LL.get_length())
 
     LL.remove_at(1)
     LL.print_LinkedList()
+    print(LL.get_length())
+    
     print(LL.search_node(4))
     print(LL.search_node(8))
