@@ -110,6 +110,22 @@ class LinkedList:
             current = current.next
 
         return False
+    
+    def get_length(self):
+        
+        if self.head == None:
+            print("Linked List is Empty!")
+
+        count = 0
+        itr = self.head
+
+        while itr:
+            count += 1
+            itr = itr.next
+
+        # return count
+
+        print(f"Length of linked list is {count}.")
             
 
 
@@ -123,6 +139,7 @@ if __name__ == '__main__':
     LL.add_to_the_end(7)
 
     LL.print_LinkedList()
+    LL.get_length()
 
     print(LL.search_node(4))
     print(LL.search_node(8))
