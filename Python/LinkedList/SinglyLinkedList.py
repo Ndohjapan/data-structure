@@ -121,7 +121,37 @@ class LinkedList:
         while itr:
             count += 1
             itr = itr.next
-        print(f"Length of linked list is {count}.")
+        return count
+
+    def remove_at(self, index):
+        """
+        Method to remove a node from a particular position or index
+
+        Args:
+            index: the position of the data to be removed from the linked list.
+
+        Complexity:
+                Time: O(n) where n is the number of nodes in the linked list.
+                Space: O(1)
+        """
+        if index < 0 or isinstance(index, str | float | bool) or index >= self.get_length():
+            raise Exception("Invalid Index!")
+        
+
+        if index == 0:
+            self.head = self.head.next
+
+        count = 0
+        itr = self.head
+
+        while itr:
+            if count == index - 1:
+                #skips the nodes and connects to the next node
+                itr.next = itr.next.next
+                break
+            itr = itr.next
+            count += 1
+
 
 
 if __name__ == '__main__':
@@ -136,5 +166,7 @@ if __name__ == '__main__':
     LL.print_LinkedList()
     LL.get_length()
 
+    LL.remove_at(1)
+    LL.print_LinkedList()
     print(LL.search_node(4))
     print(LL.search_node(8))
