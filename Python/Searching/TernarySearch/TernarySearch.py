@@ -1,4 +1,4 @@
-def ternary_search(arr, start, end, target):
+def ternary_search(arr: list[int], start: int, end: int, target: int):
     if(start <= end):
         mid1 = start + (end - start)//3
         mid2 = end - (end - start)//3
