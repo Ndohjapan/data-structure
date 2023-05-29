@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 //  Create a self referential struct for the class of the node
 struct NexaScaleNode {
     int data;
@@ -32,6 +33,40 @@ void print_linkedlist(struct NexaScaleNode *head) // Function accepts address of
         itr = itr->next;
     }
     printf("END\n");
+}
+
+
+
+// Function to add node at beginning of linkedlist
+void add_at_beginning(struct NexaScaleNode **head, int data)
+{
+    struct NexaScaleNode *temp;
+    temp = (struct NexaScaleNode *)malloc(sizeof(struct NexaScaleNode));
+    temp->data = data;
+    temp->next = NULL;
+    
+
+    temp -> next = *head;
+    *head = temp;
+
+}
+
+// Function to add node at end of linkedlist
+void add_at_end(struct NexaScaleNode **head, int data) {
+
+    // itr would traverse the linkedlist while temp would hold the new node
+    struct NexaScaleNode *itr, *temp; 
+    itr = *head;
+
+    temp = (struct NexaScaleNode *)malloc(sizeof(struct NexaScaleNode));
+    temp -> data = data;
+    temp->next = NULL;
+
+    while (itr->next != NULL) {
+        itr = itr -> next;
+    }
+    itr -> next = temp;
+
 }
 
 
@@ -98,7 +133,12 @@ int main() {
 
     print_linkedlist(head);   // head is an address to the first node
     get_length_linkedlist(head);
-
+    add_at_beginning(&head, 2);
+    print_linkedlist(head);
+    get_length_linkedlist(head);
+    add_at_end(&head, 5);
+    print_linkedlist(head);
+    get_length_linkedlist(head);
     return 0;
 }
 
