@@ -34,14 +34,36 @@ void print_linkedlist(struct NexaScaleNode *head) // Function accepts address of
     printf("END\n");
 }
 
+int get_length_linkedlist(struct NexaScaleNode *head) {
+    int count = 0;
+
+    if (head == NULL) {
+        printf("LinkedList is empty!");
+    }
+
+    struct NexaScaleNode *itr = NULL;
+
+    itr = head;
+
+    while (itr != NULL) {
+        count++;
+        itr = itr->next;
+    }
+
+    printf("Length of LinkedList is %d\n", count);
+
+}
+
 
 
 //Entry point of code
 int main() {
 
+    // head is the pointer to the first node
     struct NexaScaleNode *head = NULL;
 
-    head = (struct NexaScaleNode *)malloc(sizeof(struct NexaScaleNode)); //address to the first node
+    // This line of code creates a NexaScaleNode instance of a node and returns the address to the variable head
+    head = (struct NexaScaleNode *)malloc(sizeof(struct NexaScaleNode));
 
     if (head == NULL) {
         printf("Memory is empty!");
@@ -72,6 +94,7 @@ int main() {
     head -> next -> next = current;
 
     print_linkedlist(head);   // head is an address to the first node
+    get_length_linkedlist(head);
 
     return 0;
 }
