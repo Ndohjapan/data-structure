@@ -1,4 +1,4 @@
-def fib_search(arr: list, x: int, n: int) -> int:
+def fib_search(arr: list[int], x: int, n: int) -> int:
 
     Fib2 = 0  # (m-2)'th Fibonnaci no
     Fib1 = 1    # (m-1)'th Fibonnaci no

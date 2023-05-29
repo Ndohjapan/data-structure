@@ -1,5 +1,5 @@
 class Solution:
-    def search(self,arr, n, k):
+    def search(self, arr, n, k):
         for i in range(n):
             if(arr[i] == k):
                 return (i+1)

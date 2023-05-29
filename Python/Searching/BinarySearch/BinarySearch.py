@@ -1,6 +1,6 @@
 from math import floor
 
-def search(arr: list, target: int) -> int:
+def search(arr: list[int], target: int) -> int:
     left = 0
     right = len(arr) - 1
     

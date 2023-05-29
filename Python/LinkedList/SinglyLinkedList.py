@@ -23,7 +23,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    def add_at_beginning(self, data):
+    def add_at_beginning(self, data:int) -> None:
         """Method to add a node to the beginning of the Linked List
 
         Args:
@@ -40,7 +40,7 @@ class LinkedList:
         node = Node(data, self.head)
         self.head = node
 
-    def add_to_the_end(self, data):
+    def add_to_the_end(self, data: int) -> None:
         """Method to add node to the end of a Linked List
 
         Args:
@@ -62,10 +62,9 @@ class LinkedList:
 
             while (current.next):
                 current = current.next
-
             current.next = newnode
 
-    def print_LinkedList(self):
+    def print_LinkedList(self) -> None:
         """Method to print the content of the Linked List
 
         Complexity:
@@ -83,10 +82,9 @@ class LinkedList:
             content += str(itr.data) + " " + "->" + " "
             itr = itr.next
         content += "END"
-
         print(content)
 
-    def search_node(self, key):
+    def search_node(self, key: int) -> bool:
         """This method checks if a value exists in the linked list
             and returns True otherwise, returns False
 
@@ -108,7 +106,7 @@ class LinkedList:
 
         return False
 
-    def get_length(self):
+    def get_length(self) -> int:
         """
         Method to obtain length of the LinkedList.
 
@@ -123,7 +121,7 @@ class LinkedList:
             itr = itr.next
         return count
 
-    def remove_at(self, index):
+    def remove_at(self, index: int) -> None:
         """
         Method to remove a node from a particular position or index
 
@@ -169,6 +167,6 @@ if __name__ == '__main__':
     LL.remove_at(1)
     LL.print_LinkedList()
     print(LL.get_length())
-    
+
     print(LL.search_node(4))
     print(LL.search_node(8))
