@@ -34,6 +34,9 @@ void print_linkedlist(struct NexaScaleNode *head) // Function accepts address of
     printf("END\n");
 }
 
+
+
+// Function to get length of linkedlist
 int get_length_linkedlist(struct NexaScaleNode *head) {
     int count = 0;
 
