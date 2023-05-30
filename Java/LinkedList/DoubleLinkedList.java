@@ -78,10 +78,19 @@ class DLL{
             temp = temp.next;
         }
         
-        Node node = new Node(value, temp.next, temp);
+        if (temp == null) {
+            System.out.println("does not exist");
+            return;
+        }
 
+        Node node = new Node(value);
+        node.next = temp.next;
         temp.next = node;
-
+        node.prev = temp;
+        if (node.next != null) {
+            node.next.prev = node;
+        }
+        
         size += 1;
 
         return;
@@ -117,6 +126,8 @@ public class DoubleLinkedList {
         list.insertHead(5);
         list.insertTail(7);
         list.insert(10, 2);
+        list.insert(3, 3);
+        list.insert(2, 1);
         list.displayList();
         list.reverseDisplayList();
     }
