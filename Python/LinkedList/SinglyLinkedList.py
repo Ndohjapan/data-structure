@@ -120,6 +120,36 @@ class LinkedList:
             count += 1
             itr = itr.next
         return count
+    
+
+    def add_node_at(self, index:int, data: int) -> None:
+        """
+        Method to add a node at a particular position or index
+
+        Args:
+            index: the position of the data to be removed from the linked list.
+            data: number to be added to the node.
+
+        Complexity:
+                Time: O(n) where n is the number of nodes in the linked list.
+                Space: O(1)
+        """
+        if index < 0 or isinstance(index, str | float | bool) or index >= self.get_length():
+            raise Exception("Please Enter valid index!")
+        
+        if index == 0:
+            self.add_at_beginning(data)
+            return
+        
+        count = 0
+        itr = self.head
+        while itr:
+            if count == index - 1:
+                itr.next = Node(data, itr.next)
+                break
+            itr = itr.next
+            count += 1
+
 
     def remove_at(self, index: int) -> None:
         """
@@ -150,6 +180,9 @@ class LinkedList:
             itr = itr.next
             count += 1
 
+   
+
+
 
 
 if __name__ == '__main__':
@@ -170,3 +203,5 @@ if __name__ == '__main__':
 
     print(LL.search_node(4))
     print(LL.search_node(8))
+    LL.add_node_at(1, 15)
+    LL.print_LinkedList()

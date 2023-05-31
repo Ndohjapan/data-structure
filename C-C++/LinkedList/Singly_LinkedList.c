@@ -70,7 +70,6 @@ void add_at_end(struct NexaScaleNode **head, int data) {
 }
 
 
-
 // Function to get length of linkedlist
 int get_length_linkedlist(struct NexaScaleNode *head) {
     int count = 0;
@@ -93,6 +92,29 @@ int get_length_linkedlist(struct NexaScaleNode *head) {
 }
 
 
+// Function to add node at any index
+int add_at_index(struct NexaScaleNode **head, int data, int index) {
+
+    //Pointer to traverse linkedlist
+    struct NexaScaleNode *itr = *head;
+
+    // Create Node to be added
+    struct NexaScaleNode *itr2 = (struct NexaScaleNode *)malloc(sizeof(struct NexaScaleNode));
+    itr2 -> data = data;
+    itr2 -> next = NULL;
+
+
+    int count = 0;
+    while (itr != NULL) {
+        if (count == index - 1) {
+            itr2 -> next = itr -> next;
+            itr-> next = itr2;
+            break;
+        }
+        itr = itr -> next;
+        count++;
+    }
+}
 
 //Entry point of code
 int main() {
@@ -137,6 +159,9 @@ int main() {
     print_linkedlist(head);
     get_length_linkedlist(head);
     add_at_end(&head, 5);
+    print_linkedlist(head);
+    get_length_linkedlist(head);
+    add_at_index(&head, 15, 2);
     print_linkedlist(head);
     get_length_linkedlist(head);
     return 0;
