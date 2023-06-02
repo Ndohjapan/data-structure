@@ -52,11 +52,11 @@ void add_at_beginning(struct NexaScaleNode **head, int data)
 }
 
 // Function to add node at end of linkedlist
-void add_at_end(struct NexaScaleNode **head, int data) {
+struct NexaScaleNode *add_at_end(struct NexaScaleNode *head, int data) {
 
     // itr would traverse the linkedlist while temp would hold the new node
     struct NexaScaleNode *itr, *temp; 
-    itr = *head;
+    itr = head;
 
     temp = (struct NexaScaleNode *)malloc(sizeof(struct NexaScaleNode));
     temp -> data = data;
@@ -66,6 +66,7 @@ void add_at_end(struct NexaScaleNode **head, int data) {
         itr = itr -> next;
     }
     itr -> next = temp;
+    return head; 
 
 }
 
@@ -88,12 +89,13 @@ int get_length_linkedlist(struct NexaScaleNode *head) {
     }
 
     printf("Length of LinkedList is %d\n", count);
+    return count;
 
 }
 
 
 // Function to add node at any index
-int add_at_index(struct NexaScaleNode **head, int data, int index) {
+void add_at_index(struct NexaScaleNode **head, int data, int index) {
 
     //Pointer to traverse linkedlist
     struct NexaScaleNode *itr = *head;
@@ -109,6 +111,26 @@ int add_at_index(struct NexaScaleNode **head, int data, int index) {
         if (count == index - 1) {
             itr2 -> next = itr -> next;
             itr-> next = itr2;
+            break;
+        }
+        itr = itr -> next;
+        count++;
+    }
+}
+
+void remove_at_index(struct NexaScaleNode **head, int index) {
+    
+    if (index < 0 || index >= get_length_linkedlist(*head)) {
+        printf("Please enter a valid index!\n");
+        return;
+    }
+
+    struct NexaScaleNode *itr = *head;
+    int count = 0;
+
+    while (itr != NULL) {
+        if (count  == index - 1) {
+            itr -> next = itr -> next -> next;
             break;
         }
         itr = itr -> next;
@@ -158,10 +180,12 @@ int main() {
     add_at_beginning(&head, 2);
     print_linkedlist(head);
     get_length_linkedlist(head);
-    add_at_end(&head, 5);
+    head = add_at_end(head, 5);
     print_linkedlist(head);
     get_length_linkedlist(head);
     add_at_index(&head, 15, 2);
+    print_linkedlist(head);
+    remove_at_index(&head, 9);
     print_linkedlist(head);
     get_length_linkedlist(head);
     return 0;
