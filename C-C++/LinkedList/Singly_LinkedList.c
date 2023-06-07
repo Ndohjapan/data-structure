@@ -40,6 +40,7 @@ void print_linkedlist(struct NexaScaleNode *head) // Function accepts address of
 // Function to add node at beginning of linkedlist
 void add_at_beginning(struct NexaScaleNode **head, int data)
 {
+    // create the new node
     struct NexaScaleNode *temp;
     temp = (struct NexaScaleNode *)malloc(sizeof(struct NexaScaleNode));
     temp->data = data;
@@ -126,17 +127,54 @@ void remove_at_index(struct NexaScaleNode **head, int index) {
     }
 
     struct NexaScaleNode *itr = *head;
+    struct NexaScaleNode *temp; // Pointer to hold node to be deleted so we can free the memory and avoid memory leakage.
     int count = 0;
 
-    while (itr != NULL) {
+    while (itr != NULL) {    
         if (count  == index - 1) {
-            itr -> next = itr -> next -> next;
+            temp = itr-> next;
+            itr -> next = itr -> next -> next;  // Potential Memory leakage and Segmentation Fault
+            free(temp);  // Fixed potential memory leakage.
             break;
         }
         itr = itr -> next;
         count++;
     }
 }
+
+
+struct NexaScaleNode *delete_entire_node(struct NexaScaleNode *head) {
+
+    struct NexaScaleNode *temp;
+
+    temp = head;
+
+    while (temp != NULL) {
+        temp = temp->next;
+        free(head);
+        head = temp;
+    }
+    return head;
+}
+
+
+struct NexaScaleNode *reverse_nodes(struct NexaScaleNode *head) {
+
+    // prev and next pointers are used to traverse linkedlist.
+    struct NexaScaleNode *prev = NULL;
+    struct NexaScaleNode *next = NULL;
+
+    while (head != NULL) {
+        next = head -> next; 
+        head -> next = prev;
+        prev = head;
+        head = next;
+    }
+    head = prev;
+    return head;
+
+}
+
 
 //Entry point of code
 int main() {
@@ -188,7 +226,16 @@ int main() {
     remove_at_index(&head, 9);
     print_linkedlist(head);
     get_length_linkedlist(head);
-    return 0;
+    head = reverse_nodes(head);
+    print_linkedlist(head);
+    // head = delete_entire_node(head);
+    // if (head == NULL) {
+    //     printf("Linked list deleted successfully!\n");
+    // }
+    // else {
+    //     printf("failed\n");
+    // }
+    // return 0;
 }
 
 
