@@ -127,11 +127,14 @@ void remove_at_index(struct NexaScaleNode **head, int index) {
     }
 
     struct NexaScaleNode *itr = *head;
+    struct NexaScaleNode *temp; // Pointer to hold node to be deleted so we can free the memory and avoid memory leakage.
     int count = 0;
 
     while (itr != NULL) {    
         if (count  == index - 1) {
+            temp = itr-> next;
             itr -> next = itr -> next -> next;  // Potential Memory leakage and Segmentation Fault
+            free(temp);  // Fixed potential memory leakage.
             break;
         }
         itr = itr -> next;
