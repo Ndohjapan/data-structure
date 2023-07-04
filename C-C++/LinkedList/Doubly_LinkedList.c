@@ -33,9 +33,7 @@ struct node *addToend(struct node *head, int data) {
     temp -> next = NULL;
 
     while (tp -> next != NULL) {
-
         tp = tp -> next;
-
     }
     tp -> next = temp;
     temp->prev = tp;
@@ -47,9 +45,16 @@ struct node *addToend(struct node *head, int data) {
 int main()
 {
     struct node *head = NULL;
+    struct node *ptr;
     head = addToEmpty(head, 45);
-    printf("%d\n", head->data);
     head = addToend(head, 10);
-    printf("%d\n", head->next->data);
+    head = addToend(head, 9);
+    ptr = head;
+    while (ptr != NULL) {
+        printf("%d ", ptr->data);
+        ptr = ptr -> next;
+    }
+    printf("\n");
     return 0;
+    
 }
