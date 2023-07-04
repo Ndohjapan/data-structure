@@ -22,6 +22,18 @@ struct node *addToEmpty(struct node *head, int data) {
     return head; // return address to node
 }
 
+struct node *addToBeg(struct node *head, int data)
+{
+
+    struct node *temp = (struct node *)malloc(sizeof(struct node));
+    temp->prev = NULL;
+    temp->data = data;
+    temp->next = NULL;
+    temp->next = head;
+    head->prev = temp;
+    head = temp;
+    return head;
+}
 
 //Function to insert at the end of Linkedlist
 struct node *addToend(struct node *head, int data) {
@@ -37,8 +49,61 @@ struct node *addToend(struct node *head, int data) {
     }
     tp -> next = temp;
     temp->prev = tp;
+    return head;    
+}
+
+// Function to insert at the end of Linkedlist
+struct node *addAfterIndex(struct node *head, int data, int index) {
+    struct node *tpr = NULL;
+    struct node *temp = head;
+    struct node *temp2 = NULL;
+    tpr = addToEmpty(tpr, data);
+
+    while (index != 1) {
+        temp = temp->next;
+        index--;
+
+    }
+    if (temp -> next == NULL) {
+        temp -> next = tpr;
+        tpr -> prev = temp;
+    }
+    else {
+        temp2 = temp->next;
+        temp->next = tpr;
+        tpr->prev = temp;
+        tpr->next = temp2;
+        temp2->prev = tpr;
+    }
+    
+    return head;    
+
+}
+
+
+// add a node before an index
+struct node *addBeforeIndex(struct node *head, int data, int index) {
+    struct node *tpr = NULL;
+    struct node *temp = head;
+    struct node *temp2 = NULL;
+    tpr = addToEmpty(tpr, data);
+    int pos = index;
+
+    while (pos > 2) {
+        temp = temp ->next;
+        pos--;
+    }
+    if index == 1 {
+        head = addAtBeg(head, data)
+    }
+    else {
+        temp2 = temp -> next;
+        temp->next = tpr;
+        temp2->prev = tpr;
+        tpr->next = temp2;
+        trp->prev = temp;
+    }
     return head;
-     
 }
 
 // Creating node of the Doubly linkedlist
@@ -49,7 +114,8 @@ int main()
     head = addToEmpty(head, 45);
     head = addToend(head, 10);
     head = addToend(head, 9);
-    ptr = head;
+    head = addAfterIndex(head, 15, 2);
+        ptr = head;
     while (ptr != NULL) {
         printf("%d ", ptr->data);
         ptr = ptr -> next;
